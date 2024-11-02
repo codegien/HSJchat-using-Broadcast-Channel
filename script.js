@@ -12,8 +12,8 @@ const loginBtn = document.getElementById("login-btn");
 const logoutBtn = document.getElementById("logout-btn");
 const typingIndicator = document.getElementById("typing-indicator");
 
-// Check for existing username
-const username = localStorage.getItem("username");
+// Check for existing session username
+let username = sessionStorage.getItem("username");
 if (username) {
 	initializeChat();
 } else {
@@ -28,16 +28,16 @@ function initializeChat() {
 
 // Login button click event
 loginBtn.addEventListener("click", () => {
-	const username = usernameInput.value.trim();
+	username = usernameInput.value.trim();
 	if (username) {
-		localStorage.setItem("username", username);
+		sessionStorage.setItem("username", username);
 		initializeChat();
 	}
 });
 
 // Logout button click event
 logoutBtn.addEventListener("click", () => {
-	localStorage.removeItem("username");
+	sessionStorage.removeItem("username");
 	location.reload();
 });
 
@@ -47,7 +47,6 @@ messageInput.addEventListener("keypress", handleTyping);
 
 // Broadcast a typing notification
 function handleTyping() {
-	const username = localStorage.getItem("username");
 	if (username) {
 		chatChannel.postMessage({ type: "typing", user: username });
 	}
@@ -55,7 +54,6 @@ function handleTyping() {
 
 // Send a message
 function sendMessage() {
-	const username = localStorage.getItem("username");
 	if (!username || !messageInput.value.trim()) return;
 
 	const messageData = {
