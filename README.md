@@ -8,7 +8,7 @@ A simple, front-end-only real-time chat application that allows users to communi
 ## Project Structure
 
 ```plaintext
-📁 simple-realtime-chat
+📁 HSJchat-realtime-chat
 ├── 📄 index.html      # Main HTML file for the chat UI
 ├── 📄 styles.css      # Basic styling for the chat UI
 └── 📄 script.js       # JavaScript logic to handle the chat functionality
@@ -34,7 +34,7 @@ All you need is a modern web browser that supports the **BroadcastChannel API** 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/codegien/HSJchat-using-Broadcast-Channel.git
-   cd simple-realtime-chat
+   cd HSJchat-using-Broadcast-Channel
    ```
 
 2. **Open the Project**:
